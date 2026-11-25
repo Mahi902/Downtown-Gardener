@@ -120,11 +120,16 @@ function renderBar() {
   const hints = { hand: 'Tap a glowing plant to harvest it.', can: 'Water the soil. Plants only grow while the soil is wet.', shovel: 'Dig up a plant (it is lost).', compost: 'Tap a growing plant to make it grow 2x faster for a while.' };
   $('#hint').textContent = tool.startsWith('seed:') ? `Tap empty soil to sow ${P[tool.slice(5)].seedName}.` : hints[tool];
 }
+function pop(txt, el) {
+  const r = (el || $('#grid')).getBoundingClientRect(), p = document.createElement('div');
+  p.className = 'pop'; p.textContent = txt; p.style.left = (r.left + r.width / 2) + 'px'; p.style.top = r.top + 'px';
+  document.body.appendChild(p); setTimeout(() => p.remove(), 1000);
+}
 function harvest(i) {
   const t = S.tiles[i], pl = P[t.p];
   const kg = +(pl.mweight + Math.random() * (pl.maweight - pl.mweight)).toFixed(2);
   const e = S.produce[pl.name] || (S.produce[pl.name] = { count: 0, kg: 0 });
-  e.count++; e.kg = +(e.kg + kg).toFixed(2);
+  e.count++; e.kg = +(e.kg + kg).toFixed(2); pop('+' + fmt(kg) + ' kg', $('#grid').children[i]);
   if (pl.type === 'sh') { t.p = null; t.prog = 0; } else t.prog = pl.sgrowth;
   return kg;
 }
@@ -151,10 +156,11 @@ function useTile(i, drag) {
 /* ---------- pages ---------- */
 function renderPage() {
   const gardenOn = view === 'garden';
-  $('#garden').hidden = !gardenOn; $('#page').hidden = gardenOn;
+  $('#garden').hidden = false; $('#page').hidden = gardenOn; document.body.classList.toggle('modal', !gardenOn);
   document.querySelectorAll('#tabs button').forEach(b => b.classList.toggle('on', b.dataset.view === view));
-  if (gardenOn) { renderBar(); paint(); return; }
+  renderBar(); paint(); if (gardenOn) return;
   const pg = $('#page');
+  const ttl = {inv:'Inventory',seeds:'Seed Shop',tools:'Tool Shop'}[view];
   if (view === 'inv') {
     const seeds = ORDER.filter(n => S.seeds[n] > 0), prod = ORDER.filter(n => S.produce[n] && S.produce[n].count > 0);
     const totalV = prod.reduce((a, n) => a + Math.round(S.produce[n].kg * P[n].price), 0);
@@ -194,6 +200,7 @@ function spend(c) { if (S.kochu < c) { toast('Not enough Kochu.'); return false;
 function sell(n) { const e = S.produce[n]; if (!e) return 0; const v = Math.round(e.kg * P[n].price); delete S.produce[n]; S.kochu += v; return v; }
 
 document.addEventListener('click', ev => {
+  if (ev.target.id === 'page' && S) { view = 'garden'; renderPage(); return; }
   const b = ev.target.closest('button'); if (!b || !S) return;
   const d = b.dataset;
   if (d.view) { view = d.view; renderPage(); }
@@ -204,7 +211,7 @@ document.addEventListener('click', ev => {
   } else if (d.buy) {
     const pl = P[d.buy], q = Math.min(+d.q, S.shop.stock[d.buy] || 0);
     if (q > 0 && spend(q * pl.seedprice)) { S.shop.stock[d.buy] -= q; S.seeds[d.buy] = (S.seeds[d.buy] || 0) + q; toast(`Bought ${q} ${pl.seedName}`); renderPage(); }
-  } else if (d.sell) { toast(`Sold for ${sell(d.sell)} Kochu`); renderPage(); }
+  } else if (d.sell) { const v = sell(d.sell); toast(`Sold for ${v} Kochu`); pop('+' + v, $('.wallet')); renderPage(); }
   else if ('sellall' in d) { let v = 0; for (const n of Object.keys(S.produce)) v += sell(n); toast(`Sold everything for ${v} Kochu`); renderPage(); }
   else if (d.tbuy) {
     const k = d.tbuy;
