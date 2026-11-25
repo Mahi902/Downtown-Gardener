@@ -1,0 +1,9 @@
+seedprice = 4
+stock = 95
+avgstock = 12
+price = 14
+description = **Carrot** - a crunchy orange root. Quick, cheap and a perfect first crop for any *downtown* gardener.
+mweight = 0.2
+maweight = 0.6
+sgrowth = 8
+pgrowth = 16

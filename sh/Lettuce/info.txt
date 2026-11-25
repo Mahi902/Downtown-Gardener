@@ -1,0 +1,9 @@
+seedprice = 8
+stock = 80
+avgstock = 10
+price = 18
+description = **Lettuce** - a soft, leafy head that loves cool, damp soil.
+mweight = 0.3
+maweight = 0.8
+sgrowth = 12
+pgrowth = 25

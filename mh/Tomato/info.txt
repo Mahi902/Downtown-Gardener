@@ -1,0 +1,9 @@
+seedprice = 30
+stock = 70
+avgstock = 8
+price = 12
+description = **Tomato** - a vine that keeps giving. Harvest it and it starts fruiting again.
+mweight = 0.4
+maweight = 1.2
+sgrowth = 25
+pgrowth = 30

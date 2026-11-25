@@ -1,0 +1,56 @@
+{
+ "sh": [
+  {
+   "name": "Cabbage",
+   "ss": 3,
+   "ps": 4
+  },
+  {
+   "name": "Carrot",
+   "ss": 3,
+   "ps": 4
+  },
+  {
+   "name": "Lettuce",
+   "ss": 3,
+   "ps": 4
+  },
+  {
+   "name": "Pumpkin",
+   "ss": 3,
+   "ps": 5
+  },
+  {
+   "name": "Radish",
+   "ss": 3,
+   "ps": 4
+  }
+ ],
+ "mh": [
+  {
+   "name": "Blueberry",
+   "ss": 3,
+   "ps": 4
+  },
+  {
+   "name": "Corn",
+   "ss": 3,
+   "ps": 5
+  },
+  {
+   "name": "Pepper",
+   "ss": 3,
+   "ps": 4
+  },
+  {
+   "name": "Strawberry",
+   "ss": 3,
+   "ps": 4
+  },
+  {
+   "name": "Tomato",
+   "ss": 3,
+   "ps": 4
+  }
+ ]
+}

@@ -1,0 +1,9 @@
+seedprice = 120
+stock = 30
+avgstock = 4
+price = 55
+description = **Blueberry** - a rare shrub covered in deep blue berries. Slow to start, rich forever after.
+mweight = 0.2
+maweight = 0.6
+sgrowth = 60
+pgrowth = 50

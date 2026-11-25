@@ -1,0 +1,9 @@
+seedprice = 200
+stock = 18
+avgstock = 3
+price = 15
+description = **Corn** - a tall golden stalk. Pick the cobs and it grows more. *Very* rare in the shop.
+mweight = 1.5
+maweight = 4
+sgrowth = 60
+pgrowth = 70

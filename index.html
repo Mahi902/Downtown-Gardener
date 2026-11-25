@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Downtown Gardener</title>
+<link rel="icon" href="img/kochu.svg">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div id="launch">
+  <div class="leaves"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+  <div class="logo">
+    <div class="sprout">&#127793;</div>
+    <h1>Downtown<br>Gardener</h1>
+    <p>Grow a little green in the big grey city.</p>
+  </div>
+  <div id="parade"></div>
+  <div class="lbtns">
+    <button id="play" class="big">Start Gardening</button>
+    <button id="newgame" class="ghost" hidden>New Garden</button>
+  </div>
+  <small class="credit">Currency: <img src="img/kochu.svg" alt="" class="k"> Kochu</small>
+</div>
+
+<div id="game" hidden>
+  <header>
+    <div class="brand">&#127807; Downtown Gardener</div>
+    <div class="wallet"><img src="img/kochu.svg" alt="Kochu" class="k"><span id="kochu">0</span></div>
+  </header>
+  <main>
+    <section id="garden">
+      <div id="grid"></div>
+      <div id="bar"></div>
+      <div class="hint" id="hint">Pick a seed, tap soil to sow, water it with the can, then wait for it to grow.</div>
+      <button id="harvestAll" hidden>Harvest all ready</button>
+    </section>
+    <section id="page" hidden></section>
+  </main>
+  <nav id="tabs">
+    <button data-view="garden" class="on">&#127969;<span>Garden</span></button>
+    <button data-view="inv">&#129530;<span>Inventory</span></button>
+    <button data-view="seeds">&#127793;<span>Seed Shop</span></button>
+    <button data-view="tools">&#129683;<span>Tool Shop</span></button>
+  </nav>
+  <div id="toast"></div>
+</div>
+<script src="game.js"></script>
+</body>
+</html>

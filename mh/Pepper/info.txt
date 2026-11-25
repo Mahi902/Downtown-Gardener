@@ -1,0 +1,9 @@
+seedprice = 70
+stock = 45
+avgstock = 6
+price = 25
+description = **Bell Pepper** - glossy golden peppers on a sturdy plant. Multi-harvest.
+mweight = 0.3
+maweight = 0.9
+sgrowth = 35
+pgrowth = 40

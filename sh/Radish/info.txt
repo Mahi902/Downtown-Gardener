@@ -1,0 +1,9 @@
+seedprice = 3
+stock = 90
+avgstock = 12
+price = 16
+description = **Radish** - peppery, round and *very* fast. Ready before the watering can dries.
+mweight = 0.1
+maweight = 0.35
+sgrowth = 6
+pgrowth = 12

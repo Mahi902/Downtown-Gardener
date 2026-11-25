@@ -1,0 +1,9 @@
+seedprice = 45
+stock = 55
+avgstock = 7
+price = 40
+description = **Strawberry** - tiny, sweet, and pricey per kilo. A low bush that fruits again and again.
+mweight = 0.1
+maweight = 0.3
+sgrowth = 25
+pgrowth = 25

@@ -1,0 +1,9 @@
+seedprice = 20
+stock = 60
+avgstock = 8
+price = 14
+description = **Cabbage** - a heavy, tightly wrapped head. Slow, but it pays by the kilo.
+mweight = 1.0
+maweight = 2.5
+sgrowth = 20
+pgrowth = 45

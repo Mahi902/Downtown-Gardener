@@ -1,0 +1,9 @@
+seedprice = 60
+stock = 35
+avgstock = 5
+price = 20
+description = **Pumpkin** - the giant of the garden. Needs lots of water and patience, rewards you with a *huge* harvest.
+mweight = 4
+maweight = 9
+sgrowth = 40
+pgrowth = 90
