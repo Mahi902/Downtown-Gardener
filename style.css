@@ -97,3 +97,57 @@ button .k-amt{color:inherit}
 #toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
 .pop{position:fixed;z-index:9;pointer-events:none;font-weight:700;font-size:1.3rem;color:var(--gold);-webkit-text-stroke:2px var(--edge);paint-order:stroke fill;transform:translateX(-50%);animation:rise 1s ease-out forwards}
 @keyframes rise{to{transform:translate(-50%,-60px);opacity:0}}
+
+/* ===== v3: flat 2D "Grow a Garden" look (overrides) ===== */
+:root{--panel:#fff6dc;--panel2:#ffe9a8;--edge:#7a4a1c;--txt:#4a2c0e;--gold:#ffb300;--goldd:#b36b00}
+html,body{background:#7ed957;color:var(--txt)}
+.sky{display:none}
+#launch,#game{background:
+ radial-gradient(circle at 15% 12%,#fff 0 28px,transparent 29px),radial-gradient(circle at 22% 12%,#fff 0 22px,transparent 23px),
+ radial-gradient(circle at 78% 8%,#fff 0 24px,transparent 25px),radial-gradient(circle at 85% 9%,#fff 0 30px,transparent 31px),
+ linear-gradient(#8fdcff 0,#c9f1ff 22%,#7ed957 22%,#6cc84a 100%)}
+#launch::before,#game::before{background:
+ repeating-linear-gradient(90deg,transparent 0 24px,#ffffff10 24px 48px),
+ radial-gradient(circle at 90% 20%,#ffe14d 0 22px,#ffe14d55 23px 44px,transparent 45px);top:0;bottom:0}
+#game::after{content:"";position:absolute;left:0;right:0;top:calc(22% - 14px);height:28px;background:repeating-linear-gradient(90deg,#c98a4b 0 14px,#a8692f 14px 18px);border-bottom:5px solid #7a4a1c;border-radius:6px;pointer-events:none;z-index:0}
+body,button,.brand,.logo h1{font-family:"Fredoka","Trebuchet MS",sans-serif}
+.logo h1{color:#fff;-webkit-text-stroke:6px #2e7d32;text-shadow:0 6px 0 #1b5e20;letter-spacing:1px}
+.logo p{color:#1b5e20;font-weight:700}
+.credit{color:#1b5e20;font-weight:700}
+.sprout{filter:drop-shadow(0 4px 0 #0003)}
+button{background:linear-gradient(#8bf06a,#3fbf3f);color:#fff;-webkit-text-stroke:.6px #1b5e20;box-shadow:0 4px 0 #1f7a2a,0 6px 8px #0003;border:2px solid #1f7a2a}
+.big{background:linear-gradient(#ffd54f,#ffa000);box-shadow:0 6px 0 #b36b00,0 10px 14px #0003;border-color:#b36b00;color:#fff}
+.ghost{background:#fff6dc;color:var(--txt);-webkit-text-stroke:0;border-color:var(--edge);box-shadow:0 4px 0 var(--edge)}
+.brand{background:#fff6dc;border-color:var(--edge);color:var(--txt)}
+.brand span{background:#3fbf3f;color:#fff}
+.wallet{background:#fff6dc;border-color:var(--edge);color:#b36b00;box-shadow:0 3px 0 var(--edge)}
+nav#tabs{background:#c98a4b;border-color:var(--edge)}
+nav#tabs button{background:#fff6dc;color:var(--txt);-webkit-text-stroke:0;border:0}
+nav#tabs button.on{background:linear-gradient(#ffd54f,#ffa000);color:#fff}
+/* flat top-down garden: fenced lawn with dirt beds */
+#grid{transform:none;margin:2vh auto;gap:6px;width:min(92vw,50vh,460px);padding:14px;background:#5fb83f;border:8px solid #b9803f;border-radius:14px;outline:4px solid #7a4a1c;box-shadow:0 8px 0 #7a4a1c,0 14px 20px #0004;background-image:radial-gradient(#4aa32d 2px,transparent 3px);background-size:18px 18px}
+.tile{background:#9a6234;border:3px solid #6d4120;border-radius:10px;box-shadow:inset 0 4px 0 #b9803f,inset 0 -4px 0 #0002}
+.tile.wet{background:#5b3a1c;box-shadow:inset 0 0 0 3px #4aa3ff88,inset 0 -4px 0 #0003}
+.tile .spr{left:-6%;bottom:6%;width:112%;height:112%;transform:none;filter:drop-shadow(0 3px 0 #0004)}
+.tile.ready{box-shadow:0 0 0 3px #ffd54f,0 0 14px 4px #ffe082}
+.tile.ready .spr{animation:bob 1s ease-in-out infinite}
+.tile.ready::after{transform:none;top:-8px;right:-4px}
+@keyframes hop{50%{transform:translateY(-10%)}}
+#bar{background:#fff6dc;border-color:var(--edge);box-shadow:0 4px 0 var(--edge)}
+.slot{background:#ffe9a8;border-color:var(--edge);color:var(--txt);-webkit-text-stroke:0}
+.slot.on{border-color:#ff8f00;background:#fff;box-shadow:0 0 0 3px #ffd54f}
+.slot small{background:#7a4a1c}
+.hint{color:#fff;text-shadow:0 2px 0 #1b5e20,0 0 6px #1b5e20}
+#harvestAll{background:linear-gradient(#ffd54f,#ffa000);color:#fff}
+body.modal #garden{filter:blur(2px) brightness(.6)}
+#page{background:#2e7d3299}
+#page h2{color:#fff;text-shadow:0 3px 0 #1b5e20;-webkit-text-stroke:0}
+#page h3{color:#fff;text-shadow:0 2px 0 #1b5e20}
+.card{background:#fff6dc;border-color:var(--edge);box-shadow:0 4px 0 var(--edge)}
+.card h3{color:var(--txt);text-shadow:none}
+.ico{background:#d8f3b0;border-color:var(--edge)}
+.desc{color:#6b4a2a}.meta{color:#8a6a45}.empty{color:#fff}
+.k-amt{color:#b36b00}
+.sell-all{background:linear-gradient(#ffd54f,#ffa000);color:#fff}
+#toast{background:#fff6dc;border-color:var(--edge);color:var(--txt)}
+.pop{color:#fff;-webkit-text-stroke:5px #2e7d32}
